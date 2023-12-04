@@ -11,8 +11,19 @@ function CourseRoutes(app) {
         }
       });
 
-    
-    
+      app.put("/api/courses/:id", (req, res) => {
+        const { id } = req.params;
+        const index = Database.courses.findIndex((course) => course._id === id);
+        if (index === -1) {
+          res.status(404).send("Course not found");
+          return;
+        }
+        Database.courses[index] = {
+          ...Database.courses[index],
+          ...req.body,
+        };
+        res.json(200);
+      });
       
     
     app.delete("/api/courses/:id", (req, res) => {
