@@ -20,6 +20,7 @@ const app = express();
 app.use(cors({
     credentials: true,
     origin: 'https://a6--kanbas-not-canvas-1214.netlify.app'
+    // origin: 'https://localhost:3000'
 }
 ));
 const sessionOptions = {
